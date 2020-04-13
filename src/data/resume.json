@@ -1,0 +1,288 @@
+{
+  "basics": {
+    "name": "Kevin S. Perrine",
+    "label": "Web and Mobile App Developer",
+    "image": "https://avatars0.githubusercontent.com/u/609466?s=460&v=4",
+    "summary": "Expert software engineer who writes easy to maintain code.  Can adapt or pivot quickly to any new tech stack.  Loves serving and developing a team.",
+    "website": "https://ksp.dev",
+    "email": "kevin@ksp.dev",
+    "phone": "+14799669229",
+    "location": {
+      "postalCode": "NC 28801",
+      "city": "Asheville",
+      "countryCode": "US",
+      "region": "North Carolina"
+    },
+    "profiles": [
+      {
+        "url": "https://github.com/kevinsperrine",
+        "username": "kevinsperrine",
+        "network": "github"
+      },
+      {
+        "username": "kevinsperrine",
+        "url": "http://goodreads.com/kevinsperrine",
+        "network": "goodreads"
+      },
+      {
+        "username": "kevinsperrine",
+        "url": "https://instagram.com/kevinsperrine",
+        "network": "instagram"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "Virginia Polytechnic Institute and State University",
+      "area": "Computer Science",
+      "studyType": "Bachelor (Incomplete)",
+      "startDate": "2003-08-01",
+      "endDate": "2005-12-20",
+      "courses": [
+        "Calculus",
+        "Linear Algebra",
+        "Vector Geometry",
+        "UNIX",
+        "Object-Oriented Software Development",
+        "Multivariable Calculus",
+        "Physics",
+        "Data Structures and File Management",
+        "Numerical Methods",
+        "Applied Combinatorics",
+        "Probability and Statistics for Engineers"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "Andrew Brewer, Director of Development, Field Agent",
+      "reference": "Kevin is arguably the most versatile person I know, capable of triaging and solving nearly any challenge he encounters yet still able to distill his complex ideas and solutions into comprehensible language for nearly anyone he meets; In all things, Kevin’s desire to serve people is clearly evident."
+    },
+    {
+      "reference": "Other references available upon request"
+    }
+  ],
+  "skills": [
+    {
+      "keywords": [
+        "Curious",
+        "Adaptable",
+        "Trustworthy",
+        "Motivator",
+        "Fast Learner",
+        "Communication",
+        "Teaching",
+        "Problem Solving",
+        "Debugging",
+        "Patience"
+      ],
+      "level": "Master",
+      "name": "Personal"
+    },
+    {
+      "keywords": [
+        "HTML",
+        "CSS",
+        "BEM",
+        "Styled Components",
+        "Javascript (JS)",
+        "Typescript (TS)",
+        "React",
+        "Redux",
+        "Apollo"
+      ],
+      "level": "Master",
+      "name": "Frontend"
+    },
+    {
+      "keywords": [
+        "Node",
+        "PHP",
+        "WordPress",
+        "Laravel",
+        "Serverless",
+        "Apollo"
+      ],
+      "level": "Master",
+      "name": "Backend"
+    },
+    {
+      "keywords": [
+        "React Native",
+        "Javascript (JS)",
+        "Typescript (TS)",
+        "React",
+        "Java",
+        "Objective-C"
+      ],
+      "level": "Master",
+      "name": "Mobile App"
+    },
+    {
+      "keywords": ["Git", "Github", "Git-Flow", "Scrum", "Agile"],
+      "level": "Master",
+      "name": "General Software Development"
+    },
+    {
+      "keywords": [
+        "EC2",
+        "EC2 Auto Scaling",
+        "CloudFormation",
+        "CloudFront",
+        "DynamoDB",
+        "RDS",
+        "S3",
+        "AppSync",
+        "Cognito",
+        "Lambda",
+        "Pinpoint",
+        "Kinesis",
+        "SES",
+        "CloudWatch",
+        "API Gateway",
+        "Route 53",
+        "ELB",
+        "IAM",
+        "Certificate Manager",
+        "WAF"
+      ],
+      "level": "Advanced",
+      "name": "Amazon Web Services (AWS)"
+    },
+    {
+      "keywords": [
+        "Ansible",
+        "Bash",
+        "Linux",
+        "Python",
+        "Jenkins",
+        "Node",
+        "Amazon Web Services (AWS)",
+        "Docker",
+        "Git",
+        "Apache",
+        "nginx",
+        "MySQL"
+      ],
+      "level": "Advanced",
+      "name": "DevOps and Systems Adminstration"
+    }
+  ],
+  "work": [
+    {
+      "summary": "I leaped at an opportunity to work on mobile apps when the business decided to bring mobile app development in house and apply a similar white label pattern that had proven successful for websites. I architected and built a content management system (CMS) in React and the mobile apps in React Native. The server architecture of the mobile app was also built on AWS. Using Lambda, Cognito, AppSync, DynamoDB, S3, and CloudFront, Kevin built a highly scalable, serverless architecture to handle the application load. This effort was hugely successful as C3 quickly scaled the system to support approximately 40 apps with 900,000 active users.",
+      "website": "https://www.c3presents.com/",
+      "company": "C3 Presents, LLC.",
+      "pinned": true,
+      "location": "Austin, TX",
+      "position": "Technical Lead",
+      "startDate": "2017-11-01",
+      "endDate": "2020-04-01",
+      "highlights": [
+        "Architected and implemented a white-label React Native app for use at music festivals",
+        "Lead a team of contracted developers to define direction, maintain code quality, and set expectations",
+        "React, React Native, Apollo, Redux",
+        "TypeScript, Java, Objective-C"
+      ]
+    },
+    {
+      "summary": "After finishing development on the WordPress platform, I pivoted to DevOps and Systems Administration. I worked entirely within the Amazon Web Services (AWS) ecosystem to move C3’s hosting from a single large RackSpace server to a scalable, distributed system using CloudFormation, CloudFront, S3, EC2, RDS, and ELB. Eventually, C3 hosted approximately 40 websites on this architecture capable of handling spiked server loads from hundreds of thousands of users per minute and serving a total 32.7 million users in 2019.",
+      "website": "https://www.c3presents.com/",
+      "company": "C3 Presents, LLC.",
+      "pinned": true,
+      "location": "Austin, TX",
+      "position": "DevOps Engineer and Systems Administrator",
+      "startDate": "2015-04-01",
+      "endDate": "2017-11-01",
+      "highlights": [
+        "Implemented a scalable AWS server infrastucture for running the WordPress platform capable of handling hundreds of thousands of users per minute",
+        "Managed local developer tooling by creating a Vagrant instance matching our production EC2 servers",
+        "Taught junior developers how to develop new websites using the custom WordPress platform",
+        "Amazon AWS EC2, S3, RDS, CloudFront, ElastiCache (Memcached), CloudFormation"
+      ]
+    },
+    {
+      "summary": "During the first phase of my time at C3 Presents, I built a custom white label WordPress platform that enabled the marketing department to easily manage festival data and scale to support dozens of festivals. This platform was integrated with multiple third party services including Shopify, MailChimp, and Spotify. It also contained many custom components and features to fit the festival business. It was crucial to make all of the data easily administrable so that a small number of marketers could manage the content for many festivals.",
+      "website": "https://www.c3presents.com/",
+      "company": "C3 Presents, LLC.",
+      "pinned": true,
+      "location": "Austin, TX",
+      "position": "Full Stack Web Developer",
+      "startDate": "2012-08-01",
+      "endDate": "2015-04-01",
+      "highlights": [
+        "Architected and implemented a white-label WordPress platform for festival domain-specific data",
+        "Recorded walk-through videos detailing how to use the various features of the platform",
+        "Development of various custom WordPress themes from designs provided in Illustrator or Photoshop",
+        "PHP, WordPress",
+        "HTML, CSS, JavaScript",
+        "Photoshop",
+        "Illustrator"
+      ]
+    },
+    {
+      "highlights": [
+        "Server (Linux and Windows) administration and network administration for multiple customers",
+        "Developed multiple websites using WordPress or simply static HTML/CSS/JavaScript",
+        "Performed software and hardware repairs on hundreds of customer computers and laptops"
+      ],
+      "summary": "Maintained and built multiple customer relationships while managing their network and system administration needs",
+      "website": "https://gcmcomputers.com",
+      "pinned": false,
+      "company": "GCM Computers, LLC.",
+      "location": "Fayetteville, AR",
+      "position": "Computer Technician, Systems Administrator, and Web Developer",
+      "startDate": "2008-01-20",
+      "endDate": "2010-05-01"
+    },
+    {
+      "highlights": [
+        "Learned how to market and manage a business from customer relations to budgeting, insurance, and taxes"
+      ],
+      "summary": "Managed the day-to-day operations and administration of a 7000-sqft bed and breakfast",
+      "pinned": false,
+      "company": "Anderson Creek Lodge",
+      "location": "Bellingham, WA",
+      "position": "Manager",
+      "startDate": "2011-05-01",
+      "endDate": "2012-05-01"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Reading",
+      "keywords": [
+        "Psychology",
+        "Business",
+        "Theology",
+        "History",
+        "Economics",
+        "Fantasy",
+        "Science Fiction",
+        "Philosophy",
+        "Leadership",
+        "Self Help",
+        "Marketing",
+        "Sociology"
+      ]
+    },
+    {
+      "name": "Fly Fishing",
+      "keywords": ["Dry", "Nymph", "Trout"]
+    },
+    {
+      "name": "Board Games",
+      "keywords": [
+        "Settlers of Catan",
+        "Pandemic",
+        "Zombicide",
+        "Wingspan",
+        "7 Wonders"
+      ]
+    },
+    {
+      "name": "Photography",
+      "keywords": ["Nikon", "Landscape", "Portraits", "Wildlife"]
+    }
+  ]
+}
