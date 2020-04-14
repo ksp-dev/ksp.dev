@@ -1,6 +1,6 @@
 <script>
   export let selected = null;
-  import { images } from "../store";
+  import { index } from "../store";
   import { crossfade, scale } from "svelte/transition";
   import { faTimes } from "@fortawesome/free-solid-svg-icons";
   import Icon from "svelte-awesome/components/Icon.svelte";
@@ -10,7 +10,7 @@
 
   const dispatch = createEventDispatcher();
   const close = () => {
-    images.update();
+    index.update();
     dispatch("close");
   };
 

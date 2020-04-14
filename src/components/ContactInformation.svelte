@@ -1,32 +1,120 @@
 <script>
-  import SectionTitle from "./SectionTitle.svelte";
+  import SectionTitle from "../components/SectionTitle.svelte";
+  import Row from "../components/Row.svelte";
+  import Col from "../components/Col.svelte";
+  import Icon from "svelte-awesome/components/Icon.svelte";
+  import {
+    faMapMarkerAlt,
+    faGlobe,
+    faEnvelope,
+    faMobileAlt,
+    faQuestion
+  } from "@fortawesome/free-solid-svg-icons";
+  import {
+    faGithub,
+    faGoodreads,
+    faInstagram
+  } from "@fortawesome/free-brands-svg-icons";
+  export let basics;
+
+  function getIcon(network) {
+    let icon = faQuestion;
+    switch (network.toLowerCase()) {
+      case "github":
+        icon = faGithub;
+        break;
+      case "instagram":
+        icon = faInstagram;
+        break;
+      case "goodreads":
+        icon = faGoodreads;
+        break;
+      default:
+        icon = faQuestion;
+        break;
+    }
+
+    return icon;
+  }
 </script>
 
-<style>
+<style lang="scss">
+  div {
+    padding: 1em;
+    transition: all 0.3s;
+  }
+
   h1 {
     margin-bottom: 0;
   }
 
-  h2 {
-    margin-bottom: 1em;
+  p {
+    padding: 1em;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: none;
+    vertical-align: middle;
+
+    > span {
+      text-decoration: underline;
+    }
   }
 </style>
 
-<h1>Kevin S. Perrine</h1>
-<h2>Web and Mobile App Developer</h2>
-<SectionTitle>Summary</SectionTitle>
-<p>
-  Expert software engineer who writes easy to maintain code. Can adapt or pivot
-  quickly to any new tech stack. Loves serving and developing a team.
-</p>
 <SectionTitle>Contact Information</SectionTitle>
-<ul>
-  <li>Asheville, North Carolina</li>
-  <li>+14799669229</li>
-  <li>https://ksp.dev</li>
-  <li>kevin@ksp.dev</li>
-  <li>github.com/kevinsperrine</li>
-  <li>goodreads.com/kevinsperrine</li>
-  <li>instagram.com/kevinsperrine</li>
-  <li>facebook.com/kevinsperrine</li>
-</ul>
+<div>
+  <Row>
+    <Col>
+      <span>
+        <Icon
+          data={faMapMarkerAlt}
+          style="min-width: 1.5em; vertical-align: middle;" />
+        {basics.location.city}, {basics.location.postalCode}
+      </span>
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <span>
+        <a href={basics.website} target="_blank" rel="noopener">
+          <Icon
+            data={faGlobe}
+            style="min-width: 1.5em; vertical-align: middle;" />
+          <span>{basics.website}</span>
+        </a>
+      </span>
+      <span>
+        <a href="mailto:{basics.email}" target="_blank" rel="noopener">
+          <Icon
+            data={faEnvelope}
+            style="min-width: 1.5em; vertical-align: middle;" />
+          <span>{basics.email}</span>
+        </a>
+      </span>
+      <span>
+        <a href="tel:{basics.phone}" target="_blank" rel="noopener">
+          <Icon
+            data={faMobileAlt}
+            style="min-width: 1.5em; vertical-align: middle;" />
+          <span>{basics.phone}</span>
+        </a>
+      </span>
+    </Col>
+    <Col>
+      {#if basics.profiles}
+        {#each basics.profiles as profile}
+          <span>
+            <a href={profile.url} target="_blank" rel="noopener">
+              <Icon
+                data={getIcon(profile.network)}
+                style="min-width: 1.5em; vertical-align: middle;" />
+              <span>{profile.url.replace(/https?:\/\//, '')}</span>
+            </a>
+          </span>
+        {/each}
+      {/if}
+    </Col>
+  </Row>
+</div>
