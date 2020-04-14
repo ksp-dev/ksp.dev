@@ -1,5 +1,6 @@
 import { writable } from 'svelte/store';
 import { urls } from './data/images';
+
 function createIndex() {
 	const { subscribe, set, update } = writable(0);
 
