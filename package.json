@@ -4,18 +4,19 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
-    "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
+    "download": "node scripts/download.js",
+    "build": "yarn download && sapper build --legacy",
+    "export": "yarn download && sapper export --legacy",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "test": "run-p --race dev cy:run"
+    "test": "run-p --race dev cy:run",
+    "surge": "surge --project ./__sapper__/export --domain volatile-icicle.surge.sh"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "compression": "^1.7.1",
-    "cross-fetch": "^3.0.4",
     "dayjs": "^1.8.24",
     "normalize.css": "^8.0.1",
     "polka": "next",

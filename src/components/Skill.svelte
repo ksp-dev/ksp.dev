@@ -40,6 +40,7 @@
   .isClickable {
     background: #720904;
     color: #fff;
+    cursor: pointer;
   }
 
   div {

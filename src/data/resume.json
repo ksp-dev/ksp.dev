@@ -63,6 +63,7 @@
     }
   ],
   "skills": [
+
     {
       "keywords": [
         "Curious",
@@ -119,7 +120,13 @@
       "name": "Mobile App"
     },
     {
-      "keywords": ["Git", "Github", "Git-Flow", "Scrum", "Agile"],
+      "keywords": [
+        "Git",
+        "Github",
+        "Git-Flow",
+        "Scrum",
+        "Agile"
+      ],
       "level": "Master",
       "name": "General Software Development"
     },
@@ -268,7 +275,11 @@
     },
     {
       "name": "Fly Fishing",
-      "keywords": ["Dry", "Nymph", "Trout"]
+      "keywords": [
+        "Dry",
+        "Nymph",
+        "Trout"
+      ]
     },
     {
       "name": "Board Games",
@@ -282,7 +293,12 @@
     },
     {
       "name": "Photography",
-      "keywords": ["Nikon", "Landscape", "Portraits", "Wildlife"]
+      "keywords": [
+        "Nikon",
+        "Landscape",
+        "Portraits",
+        "Wildlife"
+      ]
     }
   ]
 }

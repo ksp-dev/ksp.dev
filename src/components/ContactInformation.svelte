@@ -44,15 +44,6 @@
     transition: all 0.3s;
   }
 
-  h1 {
-    margin-bottom: 0;
-  }
-
-  p {
-    padding: 1em;
-    margin: 0;
-  }
-
   a {
     text-decoration: none;
     vertical-align: middle;
