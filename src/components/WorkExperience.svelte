@@ -1,5 +1,7 @@
 <script>
   import dayjs from "dayjs";
+  import Row from "./Row.svelte";
+  import Col from "./Col.svelte";
   export let position;
   export let company;
   export let location;
@@ -9,6 +11,7 @@
   export let summary;
   export let highlights;
   export const pinned = false;
+  import VideoLink from "./VideoLink.svelte";
 
   startDate = dayjs(startDate).format("MMMM YYYY");
   endDate = dayjs(endDate).format("MMMM YYYY");
@@ -18,50 +21,29 @@
   .container {
     padding: 1em;
   }
-
-  .row {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .col {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .row > .col + .col {
-    text-align: left;
-  }
-
-  @media (min-width: 576px) {
-    .row > .col + .col {
-      text-align: right;
-    }
-  }
 </style>
 
 <div class="container">
-  <div class="row">
-    <div class="col">
+  <Row>
+    <Col>
       <strong>{position}</strong>
       <span>{company}</span>
       <span>{location}</span>
-    </div>
-    <div class="col">
+    </Col>
+    <Col right>
       <strong>{startDate} — {endDate}</strong>
       {#if website}
         <a href={website}>{website}</a>
       {/if}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">{summary}</div>
-  </div>
-  <div class="row">
-    <div class="col">
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <VideoLink content={summary} />
+    </Col>
+  </Row>
+  <Row>
+    <Col>
       {#if highlights}
         <ul>
           {#each highlights as highlight}
@@ -69,6 +51,6 @@
           {/each}
         </ul>
       {/if}
-    </div>
-  </div>
+    </Col>
+  </Row>
 </div>

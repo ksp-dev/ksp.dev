@@ -1,5 +1,8 @@
 <script>
   import dayjs from "dayjs";
+  import Row from "./Row.svelte";
+  import Col from "./Col.svelte";
+  import VideoLink from "./VideoLink.svelte";
   export let studyType;
   export let area;
   export let institution;
@@ -16,45 +19,47 @@
     padding: 1em;
   }
 
-  .row {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    flex-wrap: wrap;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
-  .col {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  @media (min-width: 576px) {
-    .row > .col + .col {
-      text-align: right;
-    }
+  ul > li {
+    list-style: none;
+    display: inline-block;
+    padding: 0.25em;
+    background: rgba(193, 201, 211, 0.333);
+    margin-bottom: 0.5em;
+    margin-right: 0.5em;
+    font-size: 0.875em;
+    border-radius: 2px;
   }
 </style>
 
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <strong>{studyType} {area}</strong>
+  <Row>
+    <Col>
+      <strong>
+        <VideoLink content={`${studyType} ${area}`} />
+      </strong>
       <span>{institution}</span>
-    </div>
-    <div class="col">
+    </Col>
+    <Col right>
       <strong>{startDate} — {endDate}</strong>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
+    </Col>
+  </Row>
+  <Row>
+    <Col>
       {#if courses}
         <ul>
           {#each courses as course}
-            <li>{course}</li>
+            <li>
+              <VideoLink isTag={true} content={course} />
+            </li>
           {/each}
         </ul>
       {/if}
-    </div>
-  </div>
+    </Col>
+  </Row>
 </div>

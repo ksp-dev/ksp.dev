@@ -3,6 +3,7 @@
   import Row from "../components/Row.svelte";
   import Col from "../components/Col.svelte";
   import Icon from "svelte-awesome/components/Icon.svelte";
+  import VideoLink from "../components/VideoLink.svelte";
   import {
     faMapMarkerAlt,
     faGlobe,
@@ -43,9 +44,8 @@
     margin-bottom: 0;
   }
 
-  p {
+  div {
     padding: 1em;
-    margin: 0;
   }
 </style>
 
@@ -54,9 +54,8 @@
 <SectionTitle>Summary</SectionTitle>
 <Row>
   <Col>
-    <p>
-      Expert software engineer who writes easy to maintain code. Can adapt or
-      pivot quickly to any new tech stack. Loves serving and developing a team.
-    </p>
+    <div>
+      <VideoLink content={basics.summary} />
+    </div>
   </Col>
 </Row>

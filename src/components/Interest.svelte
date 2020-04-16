@@ -1,6 +1,8 @@
 <script>
   import Row from "./Row.svelte";
   import Col from "./Col.svelte";
+  import VideoLink from "./VideoLink.svelte";
+
   export let name;
   export let keywords;
 </script>
@@ -12,6 +14,7 @@
 
   h4 {
     margin: 0;
+    margin-bottom: 0.5em;
   }
 
   ul {
@@ -32,11 +35,15 @@
 </style>
 
 <div>
-  <h4>{name}</h4>
+  <h4>
+    <VideoLink content={name} />
+  </h4>
   {#if keywords}
     <ul>
       {#each keywords as keyword}
-        <li>{keyword}</li>
+        <li>
+          <VideoLink isTag={true} content={keyword} />
+        </li>
       {/each}
     </ul>
   {/if}

@@ -7,14 +7,30 @@
   import Row from "./Row.svelte";
   import Col from "./Col.svelte";
   import Modal from "./Modal.svelte";
+  import VideoLink from "./VideoLink.svelte";
+
+  import { videos } from "../data/videos.js";
   let selected = null;
   let time = 0;
   let duration;
   let paused = true;
+  let video = null;
   const [send, receive] = crossfade({
     duration: 200,
     fallback: scale
   });
+
+  function hasVideo(keyword) {
+    let found = videos.find(video => video.keyword === keyword);
+
+    if (found) {
+      video = found;
+
+      return true;
+    }
+
+    return false;
+  }
 
   function handleMouseDown(e) {
     // we can't rely on the built-in click event, because it fires
@@ -37,12 +53,6 @@
 </script>
 
 <style>
-  .isClickable {
-    background: #720904;
-    color: #fff;
-    cursor: pointer;
-  }
-
   div {
     padding: 1em;
   }
@@ -82,27 +92,10 @@
   {#if data.keywords}
     <ul>
       {#each data.keywords as keyword}
-        {#if keyword.toLowerCase() === 'wordpress'}
-          <li
-            class="isClickable"
-            on:click={() => {
-              selected = keyword;
-            }}
-            in:receive={{ key: keyword }}
-            out:send={{ key: keyword }}>
-            {keyword}
-          </li>
-        {:else}
-          <li>{keyword}</li>
-        {/if}
+        <li>
+          <VideoLink isTag={true} content={keyword} />
+        </li>
       {/each}
     </ul>
-  {/if}
-
-  {#if selected}
-    <Modal
-      on:close={() => {
-        selected = false;
-      }} />
   {/if}
 </div>

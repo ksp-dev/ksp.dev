@@ -1,7 +1,7 @@
 <script>
   import SectionTitle from "../components/SectionTitle.svelte";
-  import Row from "../components/Row.svelte";
-  import Col from "../components/Col.svelte";
+  import Row from "./Row.svelte";
+  import Col from "./Col.svelte";
   import Icon from "svelte-awesome/components/Icon.svelte";
   import {
     faMapMarkerAlt,

@@ -6,7 +6,7 @@
   import Icon from "svelte-awesome/components/Icon.svelte";
   import Row from "../components/Row.svelte";
   import Col from "../components/Col.svelte";
-  import { createEventDispatcher, onDestroy } from "svelte";
+  import { onMount, createEventDispatcher, onDestroy } from "svelte";
 
   const dispatch = createEventDispatcher();
   const close = () => {
@@ -17,29 +17,52 @@
   let time = 0;
   let duration;
   let paused = true;
+  let player;
+  let done = false;
 
   const [send, receive] = crossfade({
     duration: 200,
     fallback: scale
   });
 
-  function handleMouseDown(e) {
-    // we can't rely on the built-in click event, because it fires
-    // after a drag — we have to listen for clicks ourselves
+  function createPlayer() {
+    player = new YT.Player("player", {
+      height: "100%",
+      width: "100%",
+      videoId: selected.id,
+      events: {
+        onReady: onPlayerReady,
+        onStateChange: onPlayerStateChange
+      }
+    });
+  }
 
-    function handleMouseup() {
-      if (paused) e.target.play();
-      else e.target.pause();
-      cancel();
+  onMount(() => {
+    if (!window.YT) {
+      var tag = document.createElement("script");
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      window.onYouTubeIframeAPIReady = createPlayer;
+    } else {
+      createPlayer();
     }
+  });
 
-    function cancel() {
-      e.target.removeEventListener("mouseup", handleMouseup);
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.ENDED) {
+      close();
     }
+  }
 
-    e.target.addEventListener("mouseup", handleMouseup);
-
-    setTimeout(cancel, 200);
+  function stopVideo() {
+    player.stopVideo();
   }
 </script>
 
@@ -63,13 +86,19 @@
     padding: 1rem;
   }
 
-  video {
-    max-width: 100%;
+  .player-container {
+    width: 100%;
+    height: 54vw;
+  }
+  #player {
     width: 100%;
   }
 </style>
 
-<div class="modal" in:receive={{ key: selected }} out:send={{ key: selected }}>
+<div
+  class="modal"
+  in:receive={{ key: selected.id }}
+  out:send={{ key: selected.id }}>
   <div class="container">
     <Row>
       <Col>
@@ -80,14 +109,25 @@
     </Row>
     <Row>
       <Col>
-        <video
-          poster="http://sveltejs.github.io/assets/caminandes-llamigos.jpg"
-          src="http://sveltejs.github.io/assets/caminandes-llamigos.mp4"
+        <div class="player-container">
+          <div id="player" />
+        </div>
+        <!-- <iframe
+          width="560"
+          height="315"
+          src={selected.url}
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope;
+          picture-in-picture"
+          allowfullscreen
+          autoplay={true} /> -->
+        <!-- <video
+          src={selected.url}
           on:mousedown={handleMouseDown}
           autoplay={true}
           bind:currentTime={time}
           bind:duration
-          bind:paused />
+          bind:paused /> -->
       </Col>
     </Row>
   </div>

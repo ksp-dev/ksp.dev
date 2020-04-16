@@ -16,15 +16,30 @@
   import { index } from "../store.js";
   import { fade } from "svelte/transition";
   import { urls } from "../data/images.js";
+  import CurrentlyReading from "../components/CurrentlyReading.svelte";
+
+  const loaded = new Map();
 
   let currentIndex;
-  const unsubscribe = index.subscribe(value => {
-    currentIndex = value;
+  let unsubscribe;
+  onMount(() => {
+    unsubscribe = index.subscribe(value => {
+      if (loaded.has(urls[value])) {
+        currentIndex = value;
+      } else {
+        const img = new Image();
+        img.src = urls[value];
+        img.onload = () => {
+          loaded.set(urls[value], img);
+          currentIndex = value;
+        };
+      }
+    });
   });
 </script>
 
 <style lang="scss">
-  $imageHeight: 50vh;
+  $imageHeight: 40vh;
 
   .container {
     display: flex;
@@ -146,6 +161,7 @@
         {/each}
       </figure>
       <ContactInformation basics={resume.basics} />
+      <CurrentlyReading />
     </aside>
   {/if}
 </div>
