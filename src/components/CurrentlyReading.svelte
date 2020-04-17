@@ -8,7 +8,15 @@
   onMount(() => {
     const tag = document.createElement("script");
     tag.src = URL;
-    tag.onload = () => {};
+    tag.onload = () => {
+      document
+        .getElementById("gr_custom_widget_1587069145")
+        .querySelectorAll("a")
+        .forEach(node => {
+          node.setAttribute("rel", "nofollow noopener");
+          node.setAttribute("target", "_blank");
+        });
+    };
     const firstScriptTag = document.getElementsByTagName("script")[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   });

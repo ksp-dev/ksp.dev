@@ -5,7 +5,6 @@
   import { videos } from "../data/videos.js";
   import { crossfade, scale } from "svelte/transition";
   import Modal from "./Modal.svelte";
-  import { faPlayCircle } from "@fortawesome/free-solid-svg-icons";
   import Icon from "svelte-awesome/components/Icon.svelte";
   import { elasticIn, elasticOut } from "svelte/easing";
 
@@ -82,10 +81,6 @@
   }
 
   span {
-    display: inline-block;
-  }
-
-  .icon-wrapper {
     display: inline-block;
   }
 </style>
