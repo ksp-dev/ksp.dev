@@ -142,13 +142,15 @@
 
       {#if resume.references}
         <SectionTitle>References</SectionTitle>
-        {#each resume.references as reference}
-          <Row>
-            <Col>
-              <Reference {...reference} />
-            </Col>
-          </Row>
-        {/each}
+        <div style="padding: 1em;">
+          {#each resume.references as reference}
+            <Row>
+              <Col>
+                <Reference {...reference} />
+              </Col>
+            </Row>
+          {/each}
+        </div>
       {/if}
     </main>
     <aside>

@@ -12,6 +12,11 @@
   export let highlights;
   export const pinned = false;
   import VideoLink from "./VideoLink.svelte";
+  import {
+    faExternalLinkSquareAlt,
+    faMapMarkerAlt
+  } from "@fortawesome/free-solid-svg-icons";
+  import Icon from "svelte-awesome/components/Icon.svelte";
 
   startDate = dayjs(startDate).format("MMMM YYYY");
   endDate = dayjs(endDate).format("MMMM YYYY");
@@ -21,6 +26,10 @@
   .container {
     padding: 1em;
   }
+
+  a {
+    display: inline-block;
+  }
 </style>
 
 <div class="container">
@@ -28,12 +37,27 @@
     <Col>
       <strong>{position}</strong>
       <span>{company}</span>
-      <span>{location}</span>
+      <span>
+        <Icon
+          data={faMapMarkerAlt}
+          style="display: inline-block; vertical-align: middle" />
+        {location}
+      </span>
     </Col>
     <Col right>
       <strong>{startDate} — {endDate}</strong>
       {#if website}
-        <a href={website}>{website}</a>
+        <a
+          href={website}
+          target="_blank"
+          rel="noopener"
+          style="display: inline-block">
+          <Icon
+            data={faExternalLinkSquareAlt}
+            style="display: inline-block; vertical-align: middle; min-width:
+            1.5em;" />
+          {website}
+        </a>
       {/if}
     </Col>
   </Row>

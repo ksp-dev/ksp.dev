@@ -11,7 +11,8 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "surge": "surge --project ./__sapper__/export --domain volatile-icicle.surge.sh"
+    "surge": "surge --project ./__sapper__/export --domain volatile-icicle.surge.sh",
+    "deploy:surge": "yarn export && yarn surge"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.13.0",

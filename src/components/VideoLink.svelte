@@ -5,10 +5,15 @@
   import { videos } from "../data/videos.js";
   import { crossfade, scale } from "svelte/transition";
   import Modal from "./Modal.svelte";
+  import { faPlayCircle } from "@fortawesome/free-solid-svg-icons";
+  import Icon from "svelte-awesome/components/Icon.svelte";
+  import { elasticIn, elasticOut } from "svelte/easing";
+
   let parts = [];
   let beginning;
   let end;
   let selected = null;
+  let showIcon = {};
   let found = videos
     .filter(video => content.includes(video.keyword))
     .sort((a, b) => content.indexOf(a.keyword) - content.indexOf(b.keyword));
@@ -17,6 +22,24 @@
     duration: 200,
     fallback: scale
   });
+
+  function pop(node, params) {
+    console.log(`[PARAMS]`, params);
+
+    const existingTransform = getComputedStyle(node).transform.replace(
+      "none",
+      ""
+    );
+
+    return {
+      delay: params.delay || 0,
+      duration: params.duration || 400,
+      easing: params.easing || elasticOut,
+      css: (t, u) => {
+        return `transform: ${existingTransform} scale(${t})`;
+      }
+    };
+  }
 
   if (found.length) {
     parts = found.reduce((carry, video, index) => {
@@ -61,6 +84,10 @@
   span {
     display: inline-block;
   }
+
+  .icon-wrapper {
+    display: inline-block;
+  }
 </style>
 
 {#if parts.length}
@@ -74,6 +101,12 @@
           class:isTag={isTag === true}
           on:click={() => {
             selected = part;
+          }}
+          on:mouseover={() => {
+            showIcon[part.id] = true;
+          }}
+          on:mouseout={() => {
+            showIcon[part.id] = false;
           }}
           in:receive={{ key: part.id }}
           out:send={{ key: part.id }}>
