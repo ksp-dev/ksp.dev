@@ -12,7 +12,10 @@
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
     "surge": "surge --project ./__sapper__/export --domain volatile-icicle.surge.sh",
-    "deploy:surge": "yarn export && yarn surge"
+    "deploy:surge": "yarn export && yarn surge",
+    "upload": "aws s3 sync ./__sapper__/export s3://ksp.dev/ --delete --cache-control max-age=31536000,public",
+    "invalidate": "aws cloudfront create-invalidation --distribution-id E1ZARUS9CXVNMG --paths '/index.html' '/service-worker-index.html'",
+    "deploy": "yarn export && yarn upload && yarn invalidate"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
