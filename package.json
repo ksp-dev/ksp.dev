@@ -6,7 +6,7 @@
     "dev": "sapper dev",
     "download": "node scripts/download.js",
     "build": "yarn download && sapper build --legacy",
-    "export": "yarn download && sapper export --legacy",
+    "export": "yarn download && sapper export --basepath /",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",

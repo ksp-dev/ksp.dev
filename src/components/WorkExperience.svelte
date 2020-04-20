@@ -7,7 +7,7 @@
   export let location;
   export let startDate;
   export let endDate;
-  export let website;
+  export let website = undefined;
   export let summary;
   export let highlights;
   export const pinned = false;

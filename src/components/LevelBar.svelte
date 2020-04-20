@@ -43,7 +43,7 @@
   }
 
   progress::-webkit-progress-value {
-    background: #05732e;
+    background: #234c3c;
   }
 </style>
 

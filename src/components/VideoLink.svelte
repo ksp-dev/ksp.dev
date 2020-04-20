@@ -69,13 +69,13 @@
 <style>
   .isClickable {
     text-decoration: underline;
-    color: #720904;
+    color: #556657;
     cursor: pointer;
   }
 
   .isTag {
     color: #fff;
-    background-color: #720904;
+    background-color: #556657;
     padding: 0.25em;
     text-decoration: none;
   }

@@ -1,6 +1,6 @@
 <script>
   export let reference;
-  export let name;
+  export let name = undefined;
 </script>
 
 <style>
